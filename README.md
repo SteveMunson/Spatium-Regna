@@ -1,3 +1,3 @@
-# Spatium-Regna
+# Stella-Regnum
 
-Spatium Regna is a space-based PBeM in which players control an empire and "eXplore, eXpand, eXploit, and eXterminate".
+Stella Regnum is a space-based PBeM in which players control an empire and "eXplore, eXpand, eXploit, and eXterminate".
