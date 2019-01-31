@@ -9,5 +9,7 @@ package core;
  *
  */
 public interface Locatable {
+	public boolean setLocation(Location location);
+
 	public Location getLocation();
 }
