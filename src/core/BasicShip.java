@@ -1,6 +1,6 @@
 package core;
 
-public class BasicShip implements Ship {
+public abstract class BasicShip implements Ship {
 	private Location location;
 	private String name;
 	private Planet orbit;
@@ -11,11 +11,13 @@ public class BasicShip implements Ship {
 		return this.location;
 	}
 
-	@Override
 	public boolean setLocation(Location location) {
 		// TODO Auto-generated method stub
-		this.location = location;
-		return true;
+		if (location.addEntity(this)) {
+			this.location = location;
+			return true;
+		}
+		return false;
 	}
 
 	@Override

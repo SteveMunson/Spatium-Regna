@@ -29,7 +29,7 @@ class ShipTest {
 	void setUp() throws Exception {
 		loc = new Location(x, y);
 		p = new BasicPlanet(planetName, loc);
-		ship = new BasicShip();
+		ship = new NoviceShip();
 	}
 
 	@AfterEach
