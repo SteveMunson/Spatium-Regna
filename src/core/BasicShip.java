@@ -5,6 +5,11 @@ public abstract class BasicShip implements Ship {
 	private String name;
 	private Planet orbit;
 
+	public BasicShip() {
+		super();
+		System.out.println("Created BasicShip.");
+	}
+
 	@Override
 	public Location getLocation() {
 		// TODO Auto-generated method stub
@@ -18,6 +23,15 @@ public abstract class BasicShip implements Ship {
 			return true;
 		}
 		return false;
+	}
+
+	public boolean changeLocation(Location location) {
+		// TODO Auto-generated method stub
+		Location from = this.location;
+		from.removeEntity(this);
+		location.addEntity(this);
+		this.location = location;
+		return true;
 	}
 
 	@Override

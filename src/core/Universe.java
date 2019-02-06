@@ -1,16 +1,24 @@
 package core;
 
-public class Universe {
+import java.io.Serializable;
+
+public class Universe implements Serializable {
 	private static final int X_SIZE = 10;
 	private static final int Y_SIZE = 10;
 	Location location[][];
 
 	public Universe() {
+		this(X_SIZE, Y_SIZE);
+	}
+
+	public Universe(int xSize, int ySize) {
 		super();
-		location = new Location[X_SIZE][Y_SIZE];
-		for (int x = 0; x < X_SIZE; x++)
-			for (int y = 0; y < Y_SIZE; y++)
+		System.out.println("Creating universe...");
+		location = new Location[xSize][ySize];
+		for (int x = 0; x < xSize; x++)
+			for (int y = 0; y < ySize; y++)
 				location[x][y] = new Location(x, y);
+		System.out.println("Done. " + xSize + " x " + ySize);
 	}
 
 	public Location getLocation(int x, int y) {

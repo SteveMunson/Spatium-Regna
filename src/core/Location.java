@@ -1,9 +1,10 @@
 package core;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Location {
+public class Location implements Serializable {
 	private int x;
 	private int y;
 	private List<Locatable> entities;
@@ -13,6 +14,10 @@ public class Location {
 		this.setX(x);
 		this.setY(y);
 		entities = new ArrayList<Locatable>();
+		if ((y % 10) == 0)
+			System.out.println(x + "," + y + " .. ");
+		else
+			System.out.print(x + "," + y + " .. ");
 	}
 
 	public int getX() {
@@ -58,6 +63,18 @@ public class Location {
 			sb.append("Empty");
 		}
 		return sb.toString();
+	}
+
+	public void listEntities() {
+		// TODO Auto-generated method stub
+		for (Locatable e : entities) {
+			System.out.println(e);
+		}
+	}
+
+	public void removeEntity(Locatable entity) {
+		// TODO Auto-generated method stub
+		entities.remove(entity);
 	}
 
 }
