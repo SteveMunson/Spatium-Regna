@@ -10,16 +10,14 @@ public class Game implements Serializable {
 	private String gameNumber;
 
 	public Game() {
+		this(String.valueOf(java.time.Clock.systemUTC().millis()));
+	}
+
+	public Game(String gameNumber) {
 		super();
-		setGameNumber(String.valueOf(java.time.Clock.systemUTC().millis()));
-		 universe = new Universe();
+		setGameNumber(gameNumber);
+		universe = new Universe();
 		ships = new ArrayList<Ship>();
-//		Ship ship = new NoviceShip();
-//		ship.setLocation(universe.getLocation(2, 4));
-//		ship.setName("Firefly");
-//		System.out.println("Ship: " + ship);
-//		System.out.println("Loc: " + universe.getLocation(2, 4));
-//		System.out.println("Loc: " + universe.getLocation(2, 8));
 	}
 
 	public String getGameNumber() {
@@ -30,7 +28,6 @@ public class Game implements Serializable {
 		// TODO Auto-generated method stub
 		this.gameNumber = gameNumber;
 	}
-
 
 	public Universe getUniverse() {
 		// TODO Auto-generated method stub

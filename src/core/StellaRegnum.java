@@ -11,7 +11,7 @@ public class StellaRegnum {
 	public static void main(String[] args) {
 		Universe u;
 		// Create new game
-		Game game = new Game();
+		Game game = new Game("8675309");
 
 		// Add items to the game
 		System.out.println("========== First ==========");
