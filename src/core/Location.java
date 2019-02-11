@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Location implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int x;
 	private int y;
 	private List<Locatable> entities;

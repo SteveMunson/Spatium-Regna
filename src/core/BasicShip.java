@@ -1,6 +1,14 @@
 package core;
 
 public abstract class BasicShip implements Ship {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public Planet getOrbit() {
+		return orbit;
+	}
+
 	private Location location;
 	private String name;
 	private Planet orbit;

@@ -1,22 +1,18 @@
 package core;
 
-import java.io.File;
-import java.io.IOException;
 import java.io.Serializable;
-import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.security.CodeSource;
-import java.security.ProtectionDomain;
 import java.util.ArrayList;
 import java.util.List;
 
 import file.FileTools;
 
 public class Game implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Universe universe;
 	private List<Ship> ships;
 	private String gameNumber;

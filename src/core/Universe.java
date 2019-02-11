@@ -3,6 +3,10 @@ package core;
 import java.io.Serializable;
 
 public class Universe implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final int X_SIZE = 10;
 	private static final int Y_SIZE = 10;
 	Location location[][];
