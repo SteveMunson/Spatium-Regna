@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import planet.PlanetNameGenerator;
+
 public class StellaRegnum {
 
 	public static void main(String[] args) {
@@ -50,6 +52,8 @@ public class StellaRegnum {
 
 		u = game.getUniverse();
 		u.getLocation(2, 4).listEntities();
+		
+		PlanetNameGenerator png = new PlanetNameGenerator("planets.txt", 2);
 
 //		g.run();
 //		g.results();		
