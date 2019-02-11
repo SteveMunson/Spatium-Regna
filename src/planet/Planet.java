@@ -1,6 +1,10 @@
-package core;
+package planet;
 
 import java.util.List;
+
+import core.Locatable;
+import core.Nameable;
+import core.Ship;
 
 public interface Planet extends Locatable, Nameable {
 	public List<Ship> getShipsInOrbit();

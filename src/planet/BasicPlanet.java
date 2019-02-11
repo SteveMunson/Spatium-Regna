@@ -1,7 +1,10 @@
-package core;
+package planet;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import core.Location;
+import core.Ship;
 
 public class BasicPlanet implements Planet {
 	private Location location;

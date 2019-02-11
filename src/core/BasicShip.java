@@ -1,5 +1,7 @@
 package core;
 
+import planet.Planet;
+
 public abstract class BasicShip implements Ship {
 	/**
 	 * 

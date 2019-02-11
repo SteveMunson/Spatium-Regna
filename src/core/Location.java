@@ -18,10 +18,10 @@ public class Location implements Serializable {
 		this.setX(x);
 		this.setY(y);
 		entities = new ArrayList<Locatable>();
-		if ((y % 10) == 0)
-			System.out.println(x + "," + y + " .. ");
-		else
-			System.out.print(x + "," + y + " .. ");
+//		if ((y % 10) == 0)
+//			System.out.println(x + "," + y + " .. ");
+//		else
+//			System.out.print(x + "," + y + " .. ");
 	}
 
 	public int getX() {
