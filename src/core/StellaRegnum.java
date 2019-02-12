@@ -56,8 +56,7 @@ public class StellaRegnum {
 		u = game.getUniverse();
 		u.getLocation(2, 4).listEntities();
 
-		PlanetNameGenerator png = new PlanetNameGenerator("planets.txt");
-		System.out.println(png.get(6));
+//		System.out.println(png.get(6));
 //		try {
 //			FileTools.stripAfterFirstWord(Paths.get("planets.txt"));
 //		} catch (URISyntaxException e) {
