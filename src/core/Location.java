@@ -12,6 +12,7 @@ public class Location implements Serializable {
 	private int x;
 	private int y;
 	private List<Locatable> entities;
+	private String name = null;
 
 	public Location(int x, int y) {
 		// TODO Auto-generated constructor stub
@@ -56,16 +57,20 @@ public class Location implements Serializable {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Location (" + x + "," + y + ")");
-		if (entities.size() > 0) {
-			for (Locatable e : entities) {
-				sb.append(", ");
-				sb.append(e);
-			}
-		} else {
-			sb.append(", ");
-			sb.append("Empty");
-		}
+		if (this.getName() == null)
+			sb.append("Location");
+		else
+			sb.append(this.getName());
+		sb.append(" (" + x + "," + y + ")");
+//		if (entities.size() > 0) {
+//			for (Locatable e : entities) {
+//				sb.append(", ");
+//				sb.append(e);
+//			}
+//		} else {
+//			sb.append(", ");
+//			sb.append("Empty");
+//		}
 		return sb.toString();
 	}
 
@@ -79,6 +84,15 @@ public class Location implements Serializable {
 	public void removeEntity(Locatable entity) {
 		// TODO Auto-generated method stub
 		entities.remove(entity);
+	}
+
+	public String getName() {
+		// TODO Auto-generated method stub
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }
