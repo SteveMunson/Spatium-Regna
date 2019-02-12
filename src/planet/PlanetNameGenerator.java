@@ -68,7 +68,8 @@ public class PlanetNameGenerator implements Serializable {
 				for (String s : output) {
 					sb.append(s);
 				}
-				return sb.toString();
+				String out = sb.toString().substring(0, 1).toUpperCase() + sb.toString().substring(1);
+				return out;
 			}
 			prefix = output.get(output.size() - 2) + " " + output.get(output.size() - 1);
 		}
