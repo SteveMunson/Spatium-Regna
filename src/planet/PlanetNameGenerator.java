@@ -1,6 +1,7 @@
 package planet;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -11,8 +12,12 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 
-public class PlanetNameGenerator {
+public class PlanetNameGenerator implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static final int AVERAGE_WORD_LENGTH = 6;
 	private static Random r = new Random();
 	private Map<String, List<String>> map;
@@ -40,14 +45,14 @@ public class PlanetNameGenerator {
 
 	public String get(int length) {
 		// TODO Auto-generated method stub
-		System.out.println("-----");
+//		System.out.println("-----");
 		int rn = r.nextInt(map.size());
 		String prefix = (String) map.keySet().toArray()[rn];
 		List<String> output = new ArrayList<>(Arrays.asList(prefix.split(" ")));
 		StringBuilder sb = new StringBuilder();
 		while (true) {
-			System.out.println("Prefix: " + prefix);
-			System.out.println("Suffix: " + map.get(prefix));
+//			System.out.println("Prefix: " + prefix);
+//			System.out.println("Suffix: " + map.get(prefix));
 			List<String> suffix = map.get(prefix);
 			if (suffix != null) {
 				if (suffix.size() == 1) {
@@ -78,7 +83,7 @@ public class PlanetNameGenerator {
 		while (scanner.hasNext()) {
 			String word = scanner.nextLine();
 			word = word.split(" ")[0];
-			System.out.println("\nWord: " + word);
+//			System.out.println("\nWord: " + word);
 			totalLength += word.length();
 			numberofWords++;
 			if (word.length() < shortest)
@@ -92,12 +97,12 @@ public class PlanetNameGenerator {
 				if (letter.matches("[aeiouy]") || i == word.length() - 1) {
 					String sub = word.substring(index, i + 1);
 					index = i + 1;
-					System.out.println("Sub: " + sub);
+//					System.out.println("Sub: " + sub);
 					snips.add(sub.toLowerCase());
 				}
 			}
 			// take snips and put into map
-			System.out.println("Prefixes: " + (snips.size() - 2));
+//			System.out.println("Prefixes: " + (snips.size() - 2));
 			if (snips.size() > 2) {
 				for (int i = 0; i < snips.size() - 2; i++) {
 					String key = snips.get(i) + " " + snips.get(i + 1);
@@ -108,14 +113,14 @@ public class PlanetNameGenerator {
 					} else {
 						map.get(key).add(snips.get(i + 2));
 					}
-					System.out.println(key + " - " + map.get(key));
+//					System.out.println(key + " - " + map.get(key));
 				}
 			}
 
 		}
 		scanner.close();
-		System.out.println("Avg word length: " + (totalLength / numberofWords));
-		System.out.println("Shortest: " + (shortest));
-		System.out.println("Longest: " + (longest));
+//		System.out.println("Avg word length: " + (totalLength / numberofWords));
+//		System.out.println("Shortest: " + (shortest));
+//		System.out.println("Longest: " + (longest));
 	}
 }
