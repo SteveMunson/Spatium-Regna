@@ -5,7 +5,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.URISyntaxException;
+import java.nio.file.Paths;
 
+import file.FileTools;
 import planet.PlanetNameGenerator;
 
 public class StellaRegnum {
@@ -52,8 +55,18 @@ public class StellaRegnum {
 
 		u = game.getUniverse();
 		u.getLocation(2, 4).listEntities();
-		
-		PlanetNameGenerator png = new PlanetNameGenerator("planets.txt", 2);
+
+		PlanetNameGenerator png = new PlanetNameGenerator("planets.txt");
+		System.out.println(png.get(6));
+//		try {
+//			FileTools.stripAfterFirstWord(Paths.get("planets.txt"));
+//		} catch (URISyntaxException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 
 //		g.run();
 //		g.results();		
