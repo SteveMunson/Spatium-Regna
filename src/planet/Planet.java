@@ -14,4 +14,12 @@ public interface Planet extends Locatable, Nameable {
 	public boolean AddShipToOrbit(Ship ship);
 
 	public boolean isOrbiting(Ship ship);
+
+	public int getResourceLevel();
+
+	public void setResourceLevel(int level);
+
+	public int getTechLevel();
+
+	public void setTechLevel(int level);
 }

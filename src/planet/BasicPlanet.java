@@ -10,6 +10,8 @@ public class BasicPlanet implements Planet {
 	private Location location;
 	private String name;
 	private List<Ship> shipsInOrbit;
+	private int resourceLevel;
+	private int techLevel;
 
 	public BasicPlanet(String planetName, Location location) {
 		// TODO Auto-generated constructor stub
@@ -78,5 +80,29 @@ public class BasicPlanet implements Planet {
 	public boolean isOrbiting(Ship ship) {
 		// TODO Auto-generated method stub
 		return shipsInOrbit.contains(ship);
+	}
+
+	@Override
+	public int getResourceLevel() {
+		// TODO Auto-generated method stub
+		return this.resourceLevel;
+	}
+
+	@Override
+	public void setResourceLevel(int level) {
+		// TODO Auto-generated method stub
+		this.resourceLevel = level;
+	}
+
+	@Override
+	public int getTechLevel() {
+		// TODO Auto-generated method stub
+		return this.techLevel;
+	}
+
+	@Override
+	public void setTechLevel(int level) {
+		// TODO Auto-generated method stub
+		this.techLevel = level;
 	}
 }
