@@ -36,7 +36,7 @@ public class Universe implements Serializable {
 				location[x][y] = new Location(x, y);
 		numberOfSystems = (int) ((xSize * ySize) * SYSTEM_DENSITY);
 		System.out.println("Naming " + numberOfSystems + " systems...");
-		planetNameGenerator = new PlanetNameGenerator("planets.txt");
+		planetNameGenerator = new PlanetNameGenerator("planetNames.txt");
 		for (int i = 0; i < numberOfSystems; i++) {
 			Location loc;
 			do {
