@@ -5,16 +5,21 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.net.URISyntaxException;
-import java.nio.file.Paths;
-
-import file.FileTools;
-import planet.PlanetNameGenerator;
+import java.util.logging.FileHandler;
+import java.util.logging.LogManager;
+import java.util.logging.Logger;
 
 public class StellaRegnum {
+	private static final boolean APPEND = true;
+	private static FileHandler fileHandler;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SecurityException, IOException {
 		Universe u;
+		LogManager logmanager = LogManager.getLogManager();
+		Logger log = logmanager.getLogger(Logger.GLOBAL_LOGGER_NAME);
+		fileHandler = new FileHandler("StellaRegnum.log", APPEND);
+		fileHandler.setFormatter(new CustomFormatter());
+		log.addHandler(fileHandler);
 		// Create new game
 		Game game = new Game("8675309");
 

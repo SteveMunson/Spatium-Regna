@@ -1,17 +1,19 @@
 package core;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.net.URISyntaxException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import file.FileTools;
 
 public class Game implements Serializable {
-	/**
-	 * 
-	 */
+	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	private static final long serialVersionUID = 1L;
 	private Universe universe;
 	private List<Ship> ships;
@@ -24,16 +26,23 @@ public class Game implements Serializable {
 	public Game(String gameNumber) {
 		super();
 		setGameNumber(gameNumber);
-		// create game directory
+		LOGGER.log(Level.INFO, "Creating game number " + gameNumber);
 
+		// create game directory
 		Path p = null;
+		Path dir = null;
 		try {
 			p = FileTools.getGameDirectory();
+			p = p.resolve(getGameNumber());
+			dir = Files.createDirectories(p);
 		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		System.out.println(p);
+		System.out.println("Created game directory: " + dir.toString());
 		universe = new Universe();
 		ships = new ArrayList<Ship>();
 	}
