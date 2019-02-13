@@ -16,10 +16,10 @@ public class StellaRegnum {
 	public static void main(String[] args) throws SecurityException, IOException {
 		Universe u;
 		LogManager logmanager = LogManager.getLogManager();
-		Logger log = logmanager.getLogger(Logger.GLOBAL_LOGGER_NAME);
+		Logger appLog = logmanager.getLogger(Logger.GLOBAL_LOGGER_NAME);
 		fileHandler = new FileHandler("StellaRegnum.log", APPEND);
 		fileHandler.setFormatter(new CustomFormatter());
-		log.addHandler(fileHandler);
+		appLog.addHandler(fileHandler);
 		// Create new game
 		Game game = new Game("8675309");
 

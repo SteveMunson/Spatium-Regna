@@ -7,13 +7,18 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.FileHandler;
 import java.util.logging.Level;
+import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 import file.FileTools;
 
 public class Game implements Serializable {
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+	private static final boolean APPEND = true;
+	private static FileHandler fileHandler;
+
 	private static final long serialVersionUID = 1L;
 	private Universe universe;
 	private List<Ship> ships;
@@ -27,6 +32,17 @@ public class Game implements Serializable {
 		super();
 		setGameNumber(gameNumber);
 		LOGGER.log(Level.INFO, "Creating game number " + gameNumber);
+		LogManager logmanager = LogManager.getLogManager();
+		Logger log = logmanager.getLogger(Logger.GLOBAL_LOGGER_NAME);
+		try {
+			fileHandler = new FileHandler("./" + gameNumber + "/SR_" + gameNumber + ".log", APPEND);
+			fileHandler.setFormatter(new CustomFormatter());
+			log.addHandler(fileHandler);
+		} catch (SecurityException | IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		log.info("This is in the game log");
 
 		// create game directory
 		Path p = null;
