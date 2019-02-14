@@ -9,6 +9,8 @@ import java.util.logging.FileHandler;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
+import file.CustomFormatter;
+
 public class StellaRegnum {
 	private static final boolean APPEND = true;
 	private static FileHandler fileHandler;

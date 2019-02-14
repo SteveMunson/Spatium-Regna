@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
+import file.CustomFormatter;
 import file.FileTools;
 
 public class Game implements Serializable {
