@@ -10,7 +10,6 @@ import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 import file.CustomFormatter;
-import ships.NoviceShip;
 import ships.Ship;
 import ships.ShipFactory;
 import ships.ShipType;
@@ -30,6 +29,8 @@ public class StellaRegnum {
 		Game game = new Game("8675309");
 		
 		Ship ship = ShipFactory.get(ShipType.SmallFighter);
+		System.out.println(ship.getMass());
+		System.out.println(ship.getVolume());
 
 		// Add items to the game
 //		System.out.println("========== First ==========");

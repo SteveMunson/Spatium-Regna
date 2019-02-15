@@ -3,11 +3,12 @@ package ships;
 import core.Location;
 import planet.Planet;
 
-public abstract class BasicShip implements Ship {
+public class BasicShip implements Ship {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
 	public Planet getOrbit() {
 		return orbit;
 	}
@@ -15,6 +16,8 @@ public abstract class BasicShip implements Ship {
 	private Location location;
 	private String name;
 	private Planet orbit;
+	private int mass;
+	private Hull hull;
 
 	public BasicShip() {
 		super();
@@ -71,5 +74,29 @@ public abstract class BasicShip implements Ship {
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public int getMass() {
+		// TODO Auto-generated method stub
+		return this.mass;
+	}
+
+	@Override
+	public void setMass(int amount) {
+		// TODO Auto-generated method stub
+		this.mass = amount;
+	}
+
+	@Override
+	public int getVolume() {
+		// TODO Auto-generated method stub
+		return mass*3;
+	}
+
+	@Override
+	public void setHull(Hull hull) {
+		// TODO Auto-generated method stub
+		this.hull=hull;
 	}
 }
