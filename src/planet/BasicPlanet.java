@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import core.Location;
-import core.Ship;
+import ships.Ship;
 
 public class BasicPlanet implements Planet {
 	private Location location;

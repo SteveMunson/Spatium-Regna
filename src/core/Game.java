@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 
 import file.CustomFormatter;
 import file.FileTools;
+import ships.Ship;
 
 public class Game implements Serializable {
 	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);

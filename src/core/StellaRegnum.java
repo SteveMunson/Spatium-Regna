@@ -10,6 +10,8 @@ import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 import file.CustomFormatter;
+import ships.NoviceShip;
+import ships.Ship;
 
 public class StellaRegnum {
 	private static final boolean APPEND = true;

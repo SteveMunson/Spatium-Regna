@@ -1,4 +1,4 @@
-package core;
+package ships;
 
 public class NoviceShip extends BasicShip implements Ship {
 

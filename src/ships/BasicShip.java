@@ -1,5 +1,6 @@
-package core;
+package ships;
 
+import core.Location;
 import planet.Planet;
 
 public abstract class BasicShip implements Ship {

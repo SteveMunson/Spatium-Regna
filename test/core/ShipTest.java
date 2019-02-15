@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
 
 import planet.BasicPlanet;
 import planet.Planet;
+import ships.NoviceShip;
+import ships.Ship;
 
 class ShipTest {
 	Planet p;
