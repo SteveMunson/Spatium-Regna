@@ -2,6 +2,9 @@ package core;
 
 import java.io.Serializable;
 import java.util.Random;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import planet.PlanetNameGenerator;
 
@@ -10,6 +13,10 @@ public class Universe implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+	private static final boolean APPEND = true;
+	private static FileHandler fileHandler;
+
 	private static final int X_SIZE = 10;
 	private static final int Y_SIZE = 10;
 	private static final double SYSTEM_DENSITY = 0.1;
@@ -26,7 +33,7 @@ public class Universe implements Serializable {
 
 	public Universe(int xSize, int ySize) {
 		super();
-		System.out.println("Creating universe...");
+		LOGGER.log(Level.INFO, "Creating universe...");
 		this.xSize = xSize;
 		this.ySize = ySize;
 		r = new Random();
@@ -35,7 +42,7 @@ public class Universe implements Serializable {
 			for (int y = 0; y < ySize; y++)
 				location[x][y] = new Location(x, y);
 		numberOfSystems = (int) ((xSize * ySize) * SYSTEM_DENSITY);
-		System.out.println("Naming " + numberOfSystems + " systems...");
+		LOGGER.log(Level.INFO, "Naming " + numberOfSystems + " systems...");
 		planetNameGenerator = new PlanetNameGenerator("planetNames.txt");
 		for (int i = 0; i < numberOfSystems; i++) {
 			Location loc;
@@ -43,9 +50,9 @@ public class Universe implements Serializable {
 				loc = getRandomLocation();
 			} while (loc.getName() != null);
 			loc.setName(planetNameGenerator.get());
-			System.out.println(loc);
+			LOGGER.log(Level.INFO, loc.toString());
 		}
-		System.out.println("Done. " + xSize + " x " + ySize);
+		LOGGER.log(Level.INFO, "Done. " + xSize + " x " + ySize);
 	}
 
 	private Location getRandomLocation() {
