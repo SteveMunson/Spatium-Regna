@@ -60,7 +60,7 @@ public class Game implements Serializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("Created game directory: " + dir.toString());
+		LOGGER.log(Level.INFO,"Created game directory: " + dir.toString());
 		universe = new Universe();
 		ships = new ArrayList<Ship>();
 	}

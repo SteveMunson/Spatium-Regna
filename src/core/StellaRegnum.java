@@ -12,6 +12,8 @@ import java.util.logging.Logger;
 import file.CustomFormatter;
 import ships.NoviceShip;
 import ships.Ship;
+import ships.ShipFactory;
+import ships.ShipType;
 
 public class StellaRegnum {
 	private static final boolean APPEND = true;
@@ -26,44 +28,46 @@ public class StellaRegnum {
 		appLog.addHandler(fileHandler);
 		// Create new game
 		Game game = new Game("8675309");
+		
+		Ship ship = ShipFactory.get(ShipType.SmallFighter);
 
 		// Add items to the game
-		System.out.println("========== First ==========");
-		u = game.getUniverse();
-		Ship ship = new NoviceShip();
-		ship.setLocation(u.getLocation(2, 4));
-		ship.setName("Firefly");
-		game.addShip(ship);
-		u.getLocation(2, 4).listEntities();
-		String number = game.getGameNumber();
+//		System.out.println("========== First ==========");
+//		u = game.getUniverse();
+//		Ship ship = new NoviceShip();
+//		ship.setLocation(u.getLocation(2, 4));
+//		ship.setName("Firefly");
+//		game.addShip(ship);
+//		u.getLocation(2, 4).listEntities();
+//		String number = game.getGameNumber();
 
 		// save the game
-		try {
-			save(game);
-		} catch (ClassNotFoundException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			save(game);
+//		} catch (ClassNotFoundException | IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 
 		// change the game
-		System.out.println("========== Change ==========");
-		ship.setName("NewName");
-		ship.changeLocation(u.getLocation(2, 5));
-		u.getLocation(2, 4).listEntities();
-		u.getLocation(2, 5).listEntities();
+//		System.out.println("========== Change ==========");
+//		ship.setName("NewName");
+//		ship.changeLocation(u.getLocation(2, 5));
+//		u.getLocation(2, 4).listEntities();
+//		u.getLocation(2, 5).listEntities();
 
 		// load the saved game
-		System.out.println("========== Recover ==========");
-
-		try {
-			game = load(number);
-		} catch (ClassNotFoundException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		u = game.getUniverse();
-		u.getLocation(2, 4).listEntities();
+//		System.out.println("========== Recover ==========");
+//
+//		try {
+//			game = load(number);
+//		} catch (ClassNotFoundException | IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//
+//		u = game.getUniverse();
+//		u.getLocation(2, 4).listEntities();
 
 //		System.out.println(png.get(6));
 //		try {
