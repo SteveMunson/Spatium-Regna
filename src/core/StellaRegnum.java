@@ -18,6 +18,14 @@ public class StellaRegnum {
 	private static final boolean APPEND = true;
 	private static FileHandler fileHandler;
 
+	/*
+	 * Arguments:
+	 * 
+	 * new <game number> = generate new game status = game #, turn, last run, etc
+	 * run <game number> = run next turn run <game number> <turn number> = (re)run a
+	 * specific turn
+	 * 
+	 */
 	public static void main(String[] args) throws SecurityException, IOException {
 		Universe u;
 		LogManager logmanager = LogManager.getLogManager();
@@ -25,12 +33,30 @@ public class StellaRegnum {
 		fileHandler = new FileHandler("StellaRegnum.log", APPEND);
 		fileHandler.setFormatter(new CustomFormatter());
 		appLog.addHandler(fileHandler);
+
+		if (args[0].equalsIgnoreCase("new")) {
+			System.out.println("Create new game.");
+			int gameNumber;
+			if (args.length > 1) {
+				try {
+					gameNumber = Integer.valueOf(args[1]);
+				} catch (NumberFormatException e) {
+					// TODO Auto-generated catch block
+					System.err.println("usage: StellaRegnum new <game number>");
+					System.exit(0);
+				}
+			} else {
+				System.err.println("usage: StellaRegnum new <game number>");
+				System.exit(0);
+			}
+		}
+
 		// Create new game
-		Game game = new Game("8675309");
-		
-		Ship ship = ShipFactory.get(ShipType.SmallFighter);
-		System.out.println(ship.getMass());
-		System.out.println(ship.getVolume());
+//		Game game = new Game("8675309");
+
+//		Ship ship = ShipFactory.get(ShipType.SmallFighter);
+//		System.out.println(ship.getMass());
+//		System.out.println(ship.getVolume());
 
 		// Add items to the game
 //		System.out.println("========== First ==========");
