@@ -33,10 +33,10 @@ public class StellaRegnum {
 		fileHandler = new FileHandler("StellaRegnum.log", APPEND);
 		fileHandler.setFormatter(new CustomFormatter());
 		appLog.addHandler(fileHandler);
+		int gameNumber = 0;
 
 		if (args[0].equalsIgnoreCase("new")) {
 			System.out.println("Create new game.");
-			int gameNumber;
 			if (args.length > 1) {
 				try {
 					gameNumber = Integer.valueOf(args[1]);
@@ -52,7 +52,7 @@ public class StellaRegnum {
 		}
 
 		// Create new game
-//		Game game = new Game("8675309");
+		Game game = new Game(gameNumber);
 
 //		Ship ship = ShipFactory.get(ShipType.SmallFighter);
 //		System.out.println(ship.getMass());
@@ -110,23 +110,5 @@ public class StellaRegnum {
 //		g.run();
 //		g.results();		
 //		g.save();
-	}
-
-	private static Game load(String number) throws IOException, ClassNotFoundException {
-		// TODO Auto-generated method stub
-		FileInputStream fileInputStream = new FileInputStream(number + ".srg");
-		ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-		Game g = (Game) objectInputStream.readObject();
-		objectInputStream.close();
-		return g;
-	}
-
-	private static void save(Game game) throws IOException, ClassNotFoundException {
-		// TODO Auto-generated method stub
-		FileOutputStream fileOutputStream = new FileOutputStream(game.getNumber() + ".srg");
-		ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-		objectOutputStream.writeObject(game);
-		objectOutputStream.flush();
-		objectOutputStream.close();
 	}
 }

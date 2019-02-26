@@ -24,13 +24,13 @@ public class Game implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Universe universe;
 	private List<Ship> ships;
-	private String gameNumber;
+	private int gameNumber;
 
 	public Game() {
-		this(String.valueOf(java.time.Clock.systemUTC().millis()));
+		this((int) java.time.Clock.systemUTC().millis());
 	}
 
-	public Game(String gameNumber) {
+	public Game(int gameNumber) {
 		super();
 		setGameNumber(gameNumber);
 		LOGGER.log(Level.INFO, "Creating game number " + gameNumber);
@@ -51,7 +51,7 @@ public class Game implements Serializable {
 		Path dir = null;
 		try {
 			p = FileTools.getGameDirectory();
-			p = p.resolve(getGameNumber());
+			p = p.resolve(String.valueOf(getGameNumber()));
 			dir = Files.createDirectories(p);
 		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
@@ -60,16 +60,16 @@ public class Game implements Serializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		LOGGER.log(Level.INFO,"Created game directory: " + dir.toString());
+		LOGGER.log(Level.INFO, "Created game directory: " + dir.toString());
 		universe = new Universe();
 		ships = new ArrayList<Ship>();
 	}
 
-	public String getGameNumber() {
+	public int getGameNumber() {
 		return gameNumber;
 	}
 
-	public void setGameNumber(String gameNumber) {
+	public void setGameNumber(int gameNumber) {
 		// TODO Auto-generated method stub
 		this.gameNumber = gameNumber;
 	}
@@ -82,10 +82,5 @@ public class Game implements Serializable {
 	public void addShip(Ship ship) {
 		// TODO Auto-generated method stub
 		ships.add(ship);
-	}
-
-	public String getNumber() {
-		// TODO Auto-generated method stub
-		return gameNumber;
 	}
 }
