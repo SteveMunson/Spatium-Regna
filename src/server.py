@@ -1,8 +1,12 @@
 #!/usr/bin/env python
 
-from faker import Faker
+from galaxy import Galaxy
 
-faker = Faker(['it_IT', 'en_US', 'fr_FR', 'en_GB', 'de_DE'])
+galaxy = Galaxy()
 
-for i in range(10):
-    print(faker.last_name())
+systems=galaxy.getSystems()
+print(f'Number of systems: {len(systems)}')
+for s in systems:
+    print(f'System: {s.getName()}')
+    for p in s.getPlanets():
+        print(f'Planet: {p.getName()}')
